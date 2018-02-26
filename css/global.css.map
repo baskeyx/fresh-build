@@ -1,0 +1,1 @@
+{"version":3,"file":"global.css","sources":["global.scss","module/content.scss"],"sourcesContent":["// Content\n@import \"module/content.scss\";\n",""],"names":[],"mappings":""}
