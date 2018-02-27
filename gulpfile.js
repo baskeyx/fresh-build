@@ -30,6 +30,7 @@ gulp.task('concat', function () {
   gulp.src('scripts/*.js')
     .pipe(concat('script.js'))
     .pipe(gulp.dest('./js'))
+    .pipe(browserSync.stream({match: '**/*.js'}));
 });
 
 // minify JavaScript
@@ -69,7 +70,7 @@ gulp.task('build', ['html', 'compress', 'move']);
 
 gulp.task('watch', function(){
 	gulp.watch('sass/**', ['sass']);
-  gulp.watch('js/**',['concat']);
+  gulp.watch('scripts/**',['concat']);
 });
 
 gulp.task('default', ['sass','concat','watch','browser-sync']);
