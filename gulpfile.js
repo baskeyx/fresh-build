@@ -9,6 +9,7 @@ const rename = require('gulp-rename');
 const maps = require('gulp-sourcemaps');
 const browserSync = require('browser-sync');
 const replace = require('gulp-replace');
+const babel = require('gulp-babel');
 
 // convert sass into css and create source map
 gulp.task('sass', function () {
@@ -36,6 +37,9 @@ gulp.task('concat', function () {
 // minify JavaScript
 gulp.task('compress', function () {
   gulp.src('js/*.js')
+    .pipe(babel({
+      presets: ['es2015']
+    }))
     .pipe(uglify())
     .pipe(rename({ suffix: '.min' }))
     .pipe(gulp.dest('dist/js'))
